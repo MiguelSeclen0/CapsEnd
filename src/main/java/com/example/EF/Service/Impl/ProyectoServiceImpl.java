@@ -20,13 +20,18 @@ public class ProyectoServiceImpl implements ProyectoService {
     }
 
     @Override
-    public Optional<Proyecto> ConsultarId(int id) {
-     return proyectoRepository.findById(id);
+    public Proyecto ConsultarId(int id) {
+     Optional<Proyecto> obj = proyectoRepository.findById(id);
+        if (obj.isPresent()) {
+            return obj.get();
+        } else {
+            return null;
+        }
     }
 
     @Override
-    public void Guardar(Proyecto p) {
-       proyectoRepository.save(p);
+    public Proyecto Guardar(Proyecto p) {
+       return proyectoRepository.save(p);
     }
 
     @Override

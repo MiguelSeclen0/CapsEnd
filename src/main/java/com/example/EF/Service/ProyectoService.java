@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public interface ProyectoService {
     public List<Proyecto> Listar();
-    public Optional<Proyecto> ConsultarId(int id);
-    public void Guardar(Proyecto p);
+    public Proyecto ConsultarId(int id);
+    public Proyecto Guardar(Proyecto p);
     public void Eliminar(int id);
 }
 

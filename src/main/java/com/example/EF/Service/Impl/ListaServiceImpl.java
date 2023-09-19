@@ -20,13 +20,16 @@ public class ListaServiceImpl implements ListaService {
     }
 
     @Override
-    public Optional<Lista> ConsultarId(int id) {
-     return listaRepository.findById(id);
+    public Lista ConsultarId(int id) {
+     Optional<Lista> obj = listaRepository.findById(id);
+        if(obj.isPresent()){
+            return obj.get();
+        }else return null;
     }
 
     @Override
-    public void Guardar(Lista p) {
-       listaRepository.save(p);
+    public Lista Guardar(Lista p) {
+       return listaRepository.save(p);
     }
 
     @Override

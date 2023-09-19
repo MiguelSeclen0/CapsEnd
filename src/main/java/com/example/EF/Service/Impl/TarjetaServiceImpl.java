@@ -20,13 +20,18 @@ public class TarjetaServiceImpl implements TarjetaService {
     }
 
     @Override
-    public Optional<Tarjeta> ConsultarId(int id) {
-     return tarjetaRepository.findById(id);
+    public Tarjeta ConsultarId(int id) {
+     Optional<Tarjeta> obj = tarjetaRepository.findById(id);
+        if (obj.isPresent()) {
+            return obj.get();
+        } else {
+            return null;
+        }
     }
 
     @Override
-    public void Guardar(Tarjeta p) {
-       tarjetaRepository.save(p);
+    public Tarjeta Guardar(Tarjeta p) {
+       return tarjetaRepository.save(p);
     }
 
     @Override

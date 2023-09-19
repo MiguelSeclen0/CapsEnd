@@ -20,13 +20,18 @@ public class EtiquetaServiceImpl implements EtiquetaService {
     }
 
     @Override
-    public Optional<Etiqueta> ConsultarId(int id) {
-     return etiquetaRepository.findById(id);
+    public Etiqueta ConsultarId(int id) {
+        Optional<Etiqueta> obj = etiquetaRepository.findById(id);
+        if (obj.isPresent()) {
+            return obj.get();
+        } else {
+            return null;
+        }
     }
 
     @Override
-    public void Guardar(Etiqueta p) {
-       etiquetaRepository.save(p);
+    public Etiqueta Guardar(Etiqueta p) {
+       return etiquetaRepository.save(p);
     }
 
     @Override

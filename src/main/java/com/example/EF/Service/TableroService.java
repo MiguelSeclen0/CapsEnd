@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public interface TableroService {
     public List<Tablero> Listar();
-    public Optional<Tablero> ConsultarId(int id);
-    public void Guardar(Tablero p);
+    public Tablero ConsultarId(int id);
+    public Tablero Guardar(Tablero p);
     public void Eliminar(int id);
 }
 

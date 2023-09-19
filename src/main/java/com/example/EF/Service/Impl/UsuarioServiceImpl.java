@@ -20,13 +20,18 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Optional<Usuario> ConsultarId(int id) {
-     return usuarioRepository.findById(id);
+    public Usuario ConsultarId(int id) {
+     Optional<Usuario> obj = usuarioRepository.findById(id);
+        if (obj.isPresent()) {
+            return obj.get();
+        } else {
+            return null;
+        }
     }
 
     @Override
-    public void Guardar(Usuario p) {
-       usuarioRepository.save(p);
+    public Usuario Guardar(Usuario p) {
+       return usuarioRepository.save(p);
     }
 
     @Override

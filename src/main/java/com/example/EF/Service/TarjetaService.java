@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public interface TarjetaService {
     public List<Tarjeta> Listar();
-    public Optional<Tarjeta> ConsultarId(int id);
-    public void Guardar(Tarjeta p);
+    public Tarjeta ConsultarId(int id);
+    public Tarjeta Guardar(Tarjeta p);
     public void Eliminar(int id);
 }
 

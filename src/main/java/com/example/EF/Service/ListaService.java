@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public interface ListaService {
     public List<Lista> Listar();
-    public Optional<Lista> ConsultarId(int id);
-    public void Guardar(Lista p);
+    public Lista ConsultarId(int id);
+    public Lista Guardar(Lista p);
     public void Eliminar(int id);
 }
 

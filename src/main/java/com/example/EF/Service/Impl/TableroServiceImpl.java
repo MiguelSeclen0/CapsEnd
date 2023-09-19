@@ -20,13 +20,18 @@ public class TableroServiceImpl implements TableroService {
     }
 
     @Override
-    public Optional<Tablero> ConsultarId(int id) {
-     return tableroRepository.findById(id);
+    public Tablero ConsultarId(int id) {
+     Optional<Tablero> obj = tableroRepository.findById(id);
+        if (obj.isPresent()) {
+            return obj.get();
+        } else {
+            return null;
+        }
     }
 
     @Override
-    public void Guardar(Tablero p) {
-       tableroRepository.save(p);
+    public Tablero Guardar(Tablero p) {
+       return tableroRepository.save(p);
     }
 
     @Override
