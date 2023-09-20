@@ -1,28 +1,32 @@
 package com.example.EF.Domain;
 
-import javax.persistence.Column;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "usuario")
-public class Usuario {
+@Table(name = "sprint")
+public class Sprint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
-    private String email;
-    
+    private Date fechaInicio;
+    private Date fechaFin;
+
     @ManyToOne
-    @Column(name= "rol")
-    private Rol rol;
-    
+    @JoinColumn(name = "proyecto_id")
+    private Proyecto proyecto;
+
+    // Getters y setters
 }
+
 
 

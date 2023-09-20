@@ -6,29 +6,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "tarjeta")
-public class Tarjeta {
+@Table(name = "tarea")
+public class Tarea {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String tituloTarjeta;
-    private String descripcionTarjeta;
-    private Date fechaVencimiento;
+    private String nombre;
+    private String descripcion;
+    private Date fechaInicio;
+    private Date fechaLimite;
     private String estado;
+    private String color;
+    
+    @ManyToMany
+    @JoinColumn(name = "etiqueta_id")
+    private Etiqueta etiqueta;
 
     @ManyToOne
-    @JoinColumn(name = "lista_id")
-    private Lista lista;
-
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuarioAsignado;
+    @JoinColumn(name = "sprint_id")
+    private Sprint sprint;
 
     // Getters y setters
 }

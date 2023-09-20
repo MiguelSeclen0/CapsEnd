@@ -11,20 +11,23 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "lista")
-public class Lista {
+@Table(name = "miembro")
+public class Miembro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nombreLista;
-    private int posicionEnTablero;
 
     @ManyToOne
-    @JoinColumn(name = "tablero_id")
-    private Tablero tablero;
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "equipo_id")
+    private Proyecto equipo;
+    
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 
     // Getters y setters
 }
-
-
-

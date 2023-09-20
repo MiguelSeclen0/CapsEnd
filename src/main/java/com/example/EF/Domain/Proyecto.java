@@ -1,11 +1,12 @@
 package com.example.EF.Domain;
 
-
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
@@ -16,11 +17,16 @@ public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nombreProyecto;
-    private String descripcionProyecto;
+    private String nombre;
+    private String cliente;
+    private String descripcion;
+    private String estado;
     private Date fechaInicio;
     private Date fechaFinalizacion;
-    // Otros campos relevantes para la gestión de proyectos
+    
+    @ManyToOne
+    @JoinColumn(name = "equipo_id")
+    private Equipo equipo;
 
     // Getters y setters
 }

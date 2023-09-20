@@ -14,8 +14,8 @@ public class Etiqueta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nombreEtiqueta;
-    private String colorEtiqueta;
+    private String nombre;
+    private String color;
 
     // Getters y setters
 }

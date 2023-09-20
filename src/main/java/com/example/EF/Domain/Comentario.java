@@ -1,6 +1,5 @@
 package com.example.EF.Domain;
 
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,12 +16,11 @@ public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String textoComentario;
-    private Date fechaHoraComentario;
+    private String contenido;
 
     @ManyToOne
     @JoinColumn(name = "tarjeta_id")
-    private Tarjeta tarjeta;
+    private Tarea tareas;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
