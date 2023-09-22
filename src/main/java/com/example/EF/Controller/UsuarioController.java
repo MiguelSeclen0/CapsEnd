@@ -49,10 +49,10 @@ public class UsuarioController {
     }
     
     @PostMapping(value ="/login")
-    public ResponseEntity<Usuario> Login(@RequestBody Usuario usuario){
+    public ResponseEntity<String> Login(@RequestBody Usuario usuario){
         Usuario valusu = usuarioService.ValLogin(usuario.getEmail(),usuario.getContrasena());
-        if(valusu !=null)return new ResponseEntity<Usuario>(HttpStatus.OK);
-        else return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+        if(valusu !=null)return new ResponseEntity<String>("'/tablero'",HttpStatus.OK);
+        else return new ResponseEntity<String>("no",HttpStatus.NOT_FOUND);
     }
 }
 
