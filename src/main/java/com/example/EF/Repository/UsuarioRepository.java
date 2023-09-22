@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer>{
-    Optional<Usuario> findByEmail(String email);
+    Optional<Usuario> findByEmailAndContrasena(String email, String contrasena);
 }

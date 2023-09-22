@@ -40,8 +40,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario BuscarEmail(String email) {
-        Optional<Usuario> UsuEmail = usuarioRepository.findByEmail(email);
+    public Usuario ValLogin(String email, String contrasena) {
+        Optional<Usuario> UsuEmail = usuarioRepository.findByEmailAndContrasena(email, contrasena);
         if (UsuEmail.isPresent()) {
             return UsuEmail.get();
         } else {

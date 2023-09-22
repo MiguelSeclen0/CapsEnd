@@ -18,7 +18,7 @@ public class Usuario {
     private int id;
     private String nombre;
     private String email;
-    
+    private String contrasena;
     @ManyToOne
     @Column(name= "rol")
     private Rol rol;

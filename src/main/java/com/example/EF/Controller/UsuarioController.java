@@ -48,11 +48,11 @@ public class UsuarioController {
         }
     }
     
-    @GetMapping(value ="/email/{id}")
-    public ResponseEntity<String> findUsuario(@PathVariable String email){
-        Usuario usuario = usuarioService.BuscarEmail(email);
-        if(usuario !=null)return new ResponseEntity<String>("'/tablero'",HttpStatus.OK);
-        else return new ResponseEntity<String>("Usuario no encontrado",HttpStatus.NOT_FOUND);
+    @PostMapping(value ="/login")
+    public ResponseEntity<Usuario> Login(@RequestBody Usuario usuario){
+        Usuario valusu = usuarioService.ValLogin(usuario.getEmail(),usuario.getContrasena());
+        if(valusu !=null)return new ResponseEntity<Usuario>(HttpStatus.OK);
+        else return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
     }
 }
 
