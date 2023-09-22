@@ -8,5 +8,6 @@ public interface UsuarioService {
     public Usuario ConsultarId(int id);
     public Usuario Guardar(Usuario p);
     public void Eliminar(int id);
+    public Usuario BuscarEmail(String email);
 }
 

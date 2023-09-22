@@ -38,4 +38,16 @@ public class UsuarioServiceImpl implements UsuarioService {
     public void Eliminar(int id) {
        usuarioRepository.deleteById(id);
     }
+
+    @Override
+    public Usuario BuscarEmail(String email) {
+        Optional<Usuario> UsuEmail = usuarioRepository.findByEmail(email);
+        if (UsuEmail.isPresent()) {
+            return UsuEmail.get();
+        } else {
+            return null;
+        }
+    }
+    
+    
 }
