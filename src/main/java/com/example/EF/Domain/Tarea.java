@@ -25,7 +25,7 @@ public class Tarea {
     private String estado;
     private String color;
     
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "etiqueta_id")
     private Etiqueta etiqueta;
 
