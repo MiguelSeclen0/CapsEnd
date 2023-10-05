@@ -1,6 +1,6 @@
 package com.example.EF.Controller;
 
-import com.example.EF.Domain.Tarea;
+import com.example.EF.Domain.Rol;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,39 +12,39 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.EF.Service.TareaService;
+import com.example.EF.Service.RolService;
 
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/tarea/")
+@RequestMapping(value = "/rol/")
 @RestController
-public class TareaController {
+public class RolController {
     @Autowired
-    private TareaService tareaService;
+    private RolService rolService;
     
     @GetMapping(value="/all")
-    public List<Tarea> getAllTarea(){
-        return tareaService.Listar();
+    public List<Rol> getAllRol(){
+        return rolService.Listar();
     }
     
     @GetMapping(value ="/find/{id}")
-    public Tarea findTarea(@PathVariable String id){
-        return tareaService.ConsultarId(id);
+    public Rol findRol(@PathVariable String id){
+        return rolService.ConsultarId(id);
     }
     
     @PostMapping(value = "/save")
-    public ResponseEntity<Tarea> saveTarea(@RequestBody Tarea tarea) {
-        Tarea obj = tareaService.Guardar(tarea);
-        return new ResponseEntity<Tarea>(obj, HttpStatus.OK);
+    public ResponseEntity<Rol> saveRol(@RequestBody Rol rol) {
+        Rol obj = rolService.Guardar(rol);
+        return new ResponseEntity<Rol>(obj, HttpStatus.OK);
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Tarea> deleteTarea(@PathVariable String id) {
-        Tarea tarea = tareaService.ConsultarId(id);
-        if (tarea != null) {
-            tareaService.Eliminar(id);
-            return new ResponseEntity<Tarea>(tarea, HttpStatus.OK);
+    public ResponseEntity<Rol> deleteRol(@PathVariable String id) {
+        Rol rol = rolService.ConsultarId(id);
+        if (rol != null) {
+            rolService.Eliminar(id);
+            return new ResponseEntity<Rol>(rol, HttpStatus.OK);
         } else {
-            return new ResponseEntity<Tarea>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Rol>(HttpStatus.NO_CONTENT);
         }
     }
 }

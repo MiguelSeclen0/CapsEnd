@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface EtiquetaService {
     public List<Etiqueta> Listar();
-    public Etiqueta ConsultarId(int id);
+    public Etiqueta ConsultarId(String id);
     public Etiqueta Guardar(Etiqueta p);
-    public void Eliminar(int id);
+    public void Eliminar(String id);
 }
 

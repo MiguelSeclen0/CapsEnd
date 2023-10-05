@@ -27,7 +27,7 @@ public class EtiquetaController {
     }
     
     @GetMapping(value ="/find/{id}")
-    public Etiqueta findEtiqueta(@PathVariable int id){
+    public Etiqueta findEtiqueta(@PathVariable String id){
         return etiquetaService.ConsultarId(id);
     }
     
@@ -38,7 +38,7 @@ public class EtiquetaController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Etiqueta> deleteEtiqueta(@PathVariable int id) {
+    public ResponseEntity<Etiqueta> deleteEtiqueta(@PathVariable String id) {
         Etiqueta etiqueta = etiquetaService.ConsultarId(id);
         if (etiqueta != null) {
             etiquetaService.Eliminar(id);

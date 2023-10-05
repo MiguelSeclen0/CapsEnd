@@ -1,25 +1,15 @@
 package com.example.EF.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name = "etiqueta")
+@Document(value = "etiqueta")
 public class Etiqueta {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String etiquetaId;
     private String nombre;
     private String color;
-
-    // Getters y setters
 }
-
-
-
-

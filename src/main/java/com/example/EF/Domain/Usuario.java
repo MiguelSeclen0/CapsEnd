@@ -1,23 +1,19 @@
 package com.example.EF.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name = "usuario")
+@Document(value = "usuario")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String usuarioId;
     private String nombre;
     private String email;
     private String contrasena;
-    
+    private double sueldo;
 }
 
 

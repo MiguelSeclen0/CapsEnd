@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface SprintService {
     public List<Sprint> Listar();
-    public Sprint ConsultarId(int id);
+    public Sprint ConsultarId(String id);
     public Sprint Guardar(Sprint p);
-    public void Eliminar(int id);
+    public void Eliminar(String id);
 }
 

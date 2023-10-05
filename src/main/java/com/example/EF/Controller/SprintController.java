@@ -27,7 +27,7 @@ public class SprintController {
     }
     
     @GetMapping(value ="/find/{id}")
-    public Sprint findSprint(@PathVariable int id){
+    public Sprint findSprint(@PathVariable String id){
         return sprintService.ConsultarId(id);
     }
     
@@ -38,7 +38,7 @@ public class SprintController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Sprint> deleteSprint(@PathVariable int id) {
+    public ResponseEntity<Sprint> deleteSprint(@PathVariable String id) {
         Sprint sprint = sprintService.ConsultarId(id);
         if (sprint != null) {
             sprintService.Eliminar(id);

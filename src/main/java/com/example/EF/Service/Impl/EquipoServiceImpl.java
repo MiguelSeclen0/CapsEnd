@@ -20,7 +20,7 @@ public class EquipoServiceImpl implements EquipoService {
     }
 
     @Override
-    public Equipo ConsultarId(int id) {
+    public Equipo ConsultarId(String id) {
      Optional<Equipo> obj = equipoRepository.findById(id);
         if(obj.isPresent()){
             return obj.get();
@@ -33,7 +33,7 @@ public class EquipoServiceImpl implements EquipoService {
     }
 
     @Override
-    public void Eliminar(int id) {
+    public void Eliminar(String id) {
        equipoRepository.deleteById(id);
     }
 }

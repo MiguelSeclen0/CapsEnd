@@ -20,7 +20,7 @@ public class ComentarioServiceImpl implements ComentarioService {
     }
 
     @Override
-    public Comentario ConsultarId(int id) {
+    public Comentario ConsultarId(String id) {
         Optional<Comentario> obj = comentarioRepository.findById(id);
         if(obj.isPresent()){
             return obj.get();
@@ -33,7 +33,7 @@ public class ComentarioServiceImpl implements ComentarioService {
     }
 
     @Override
-    public void Eliminar(int id) {
+    public void Eliminar(String id) {
        comentarioRepository.deleteById(id);
     }
 }

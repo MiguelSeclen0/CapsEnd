@@ -20,7 +20,7 @@ public class EtiquetaServiceImpl implements EtiquetaService {
     }
 
     @Override
-    public Etiqueta ConsultarId(int id) {
+    public Etiqueta ConsultarId(String id) {
         Optional<Etiqueta> obj = etiquetaRepository.findById(id);
         if (obj.isPresent()) {
             return obj.get();
@@ -35,7 +35,7 @@ public class EtiquetaServiceImpl implements EtiquetaService {
     }
 
     @Override
-    public void Eliminar(int id) {
+    public void Eliminar(String id) {
        etiquetaRepository.deleteById(id);
     }
 }

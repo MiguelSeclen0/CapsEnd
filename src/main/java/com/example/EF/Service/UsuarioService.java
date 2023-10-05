@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface UsuarioService {
     public List<Usuario> Listar();
-    public Usuario ConsultarId(int id);
+    public Usuario ConsultarId(String id);
     public Usuario Guardar(Usuario p);
-    public void Eliminar(int id);
+    public void Eliminar(String id);
     public Usuario ValLogin(String email, String contra);
 }
 

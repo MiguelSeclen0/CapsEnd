@@ -27,7 +27,7 @@ public class EquipoController {
     }
     
     @GetMapping(value ="/find/{id}")
-    public Equipo findEquipo(@PathVariable int id){
+    public Equipo findEquipo(@PathVariable String id){
         return equipoService.ConsultarId(id);
     }
     
@@ -38,7 +38,7 @@ public class EquipoController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Equipo> deleteEquipo(@PathVariable int id) {
+    public ResponseEntity<Equipo> deleteEquipo(@PathVariable String id) {
         Equipo equipo = equipoService.ConsultarId(id);
         if (equipo != null) {
             equipoService.Eliminar(id);

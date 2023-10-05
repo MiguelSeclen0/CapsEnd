@@ -2,7 +2,12 @@ package com.example.EF.Controller;
 
 import com.example.EF.Domain.Usuario;
 import com.example.EF.Service.UsuarioService;
+import com.example.EF.Utils.JwtTokenUtil;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +32,7 @@ public class UsuarioController {
     }
     
     @GetMapping(value ="/find/{id}")
-    public Usuario findUsuario(@PathVariable int id){
+    public Usuario findUsuario(@PathVariable String id){
         return usuarioService.ConsultarId(id);
     }
     
@@ -38,7 +43,7 @@ public class UsuarioController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Usuario> deleteUsuario(@PathVariable int id) {
+    public ResponseEntity<Usuario> deleteUsuario(@PathVariable String id) {
         Usuario usuario = usuarioService.ConsultarId(id);
         if (usuario != null) {
             usuarioService.Eliminar(id);
@@ -55,7 +60,7 @@ public class UsuarioController {
         
         if (valusu != null) {
             // En caso de autenticación exitosa, puedes generar un token de acceso (debes implementar esta función)
-            String token = generateAuthToken(valusu);
+            String token = JwtTokenUtil.generateAuthToken(valusu);
             
             // Devuelve el token de acceso en la respuesta
             Map<String, String> response = new HashMap<>();

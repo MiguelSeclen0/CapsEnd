@@ -20,7 +20,7 @@ public class TareaServiceImpl implements TareaService {
     }
 
     @Override
-    public Tarea ConsultarId(int id) {
+    public Tarea ConsultarId(String id) {
      Optional<Tarea> obj = tareaRepository.findById(id);
         if (obj.isPresent()) {
             return obj.get();
@@ -35,7 +35,7 @@ public class TareaServiceImpl implements TareaService {
     }
 
     @Override
-    public void Eliminar(int id) {
+    public void Eliminar(String id) {
        tareaRepository.deleteById(id);
     }
 }

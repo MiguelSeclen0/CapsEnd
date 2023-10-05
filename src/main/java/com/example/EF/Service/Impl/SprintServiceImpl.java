@@ -20,7 +20,7 @@ public class SprintServiceImpl implements SprintService {
     }
 
     @Override
-    public Sprint ConsultarId(int id) {
+    public Sprint ConsultarId(String id) {
      Optional<Sprint> obj = sprintRepository.findById(id);
         if (obj.isPresent()) {
             return obj.get();
@@ -35,7 +35,7 @@ public class SprintServiceImpl implements SprintService {
     }
 
     @Override
-    public void Eliminar(int id) {
+    public void Eliminar(String id) {
        sprintRepository.deleteById(id);
     }
 }

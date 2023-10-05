@@ -20,7 +20,7 @@ public class ProyectoServiceImpl implements ProyectoService {
     }
 
     @Override
-    public Proyecto ConsultarId(int id) {
+    public Proyecto ConsultarId(String id) {
      Optional<Proyecto> obj = proyectoRepository.findById(id);
         if (obj.isPresent()) {
             return obj.get();
@@ -35,7 +35,7 @@ public class ProyectoServiceImpl implements ProyectoService {
     }
 
     @Override
-    public void Eliminar(int id) {
+    public void Eliminar(String id) {
        proyectoRepository.deleteById(id);
     }
 }

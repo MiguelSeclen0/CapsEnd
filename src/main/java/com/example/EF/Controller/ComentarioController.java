@@ -27,7 +27,7 @@ public class ComentarioController {
     }
     
     @GetMapping(value ="/find/{id}")
-    public Comentario findComentario(@PathVariable int id){
+    public Comentario findComentario(@PathVariable String id){
         return comentarioService.ConsultarId(id);
     }
     
@@ -38,7 +38,7 @@ public class ComentarioController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Comentario> deleteComentario(@PathVariable int id) {
+    public ResponseEntity<Comentario> deleteComentario(@PathVariable String id) {
         Comentario comentario = comentarioService.ConsultarId(id);
         if (comentario != null) {
             comentarioService.Eliminar(id);

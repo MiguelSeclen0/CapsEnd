@@ -20,7 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario ConsultarId(int id) {
+    public Usuario ConsultarId(String id) {
      Optional<Usuario> obj = usuarioRepository.findById(id);
         if (obj.isPresent()) {
             return obj.get();
@@ -35,7 +35,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void Eliminar(int id) {
+    public void Eliminar(String id) {
        usuarioRepository.deleteById(id);
     }
 

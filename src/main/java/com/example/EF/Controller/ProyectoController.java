@@ -27,7 +27,7 @@ public class ProyectoController {
     }
     
     @GetMapping(value ="/find/{id}")
-    public Proyecto findProyecto(@PathVariable int id){
+    public Proyecto findProyecto(@PathVariable String id){
         return proyectoService.ConsultarId(id);
     }
     
@@ -38,7 +38,7 @@ public class ProyectoController {
     }
 
     @GetMapping(value = "/delete/{id}")
-    public ResponseEntity<Proyecto> deleteProyecto(@PathVariable int id) {
+    public ResponseEntity<Proyecto> deleteProyecto(@PathVariable String id) {
         Proyecto proyecto = proyectoService.ConsultarId(id);
         if (proyecto != null) {
             proyectoService.Eliminar(id);

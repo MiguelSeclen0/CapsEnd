@@ -1,40 +1,28 @@
 package com.example.EF.Domain;
 
-import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.time.LocalDate;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Data;
 
-@Entity
 @Data
-@Table(name = "tarea")
+@Document(value = "tarea")
 public class Tarea {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String tareaId;
     private String nombre;
     private String descripcion;
-    private Date fechaInicio;
-    private Date fechaLimite;
+    private LocalDate fechaInicio;
+    private LocalDate fechaLimite;
     private String estado;
     private String color;
-    
-    @ManyToOne
-    @JoinColumn(name = "etiqueta_id")
+
+    @DBRef
     private Etiqueta etiqueta;
-
-    @ManyToOne
-    @JoinColumn(name = "sprint_id")
+    
+    @DBRef
     private Sprint sprint;
-
-    // Getters y setters
 }
-
-
-
