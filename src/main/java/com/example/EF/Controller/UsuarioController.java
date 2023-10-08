@@ -2,11 +2,8 @@ package com.example.EF.Controller;
 
 import com.example.EF.Domain.Usuario;
 import com.example.EF.Service.UsuarioService;
-import com.example.EF.Utils.JwtTokenUtil;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,26 +47,6 @@ public class UsuarioController {
             return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
         } else {
             return new ResponseEntity<Usuario>(HttpStatus.NO_CONTENT);
-        }
-    }
-    
-    @PostMapping(value = "/login")
-    public ResponseEntity<?> login(@RequestBody Usuario usuario) {
-        // Realiza la autenticación del usuario (verifica las credenciales en tu sistema)
-        Usuario valusu = usuarioService.ValLogin(usuario.getEmail(), usuario.getContrasena());
-        
-        if (valusu != null) {
-            // En caso de autenticación exitosa, puedes generar un token de acceso (debes implementar esta función)
-            String token = JwtTokenUtil.generateAuthToken(valusu);
-            
-            // Devuelve el token de acceso en la respuesta
-            Map<String, String> response = new HashMap<>();
-            response.put("token", token);
-            
-            return ResponseEntity.ok(response);
-        } else {
-            // En caso de autenticación fallida, devuelves un código de estado 401 (No Autorizado)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
         }
     }
 }

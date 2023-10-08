@@ -2,6 +2,9 @@ package com.example.EF.Controller;
 
 import com.example.EF.Domain.Proyecto;
 import com.example.EF.Service.ProyectoService;
+
+import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/proyecto/")
 @RestController
+@RequiredArgsConstructor
 public class ProyectoController {
     @Autowired
     private ProyectoService proyectoService;
