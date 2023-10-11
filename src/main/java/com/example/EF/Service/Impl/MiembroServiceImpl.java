@@ -1,5 +1,6 @@
 package com.example.EF.Service.Impl;
 
+import com.example.EF.Domain.Equipo;
 import com.example.EF.Domain.Miembro;
 import java.util.List;
 import java.util.Optional;
@@ -35,5 +36,10 @@ public class MiembroServiceImpl implements MiembroService {
     @Override
     public void Eliminar(String id) {
        miembroRepository.deleteById(id);
+    }
+    @Override
+    // Este método devuelve una lista de miembros asociados a un equipo específico
+    public List<Miembro> obtenerMiembrosPorEquipo(Equipo equipo) {
+        return miembroRepository.findByEquipo(equipo);
     }
 }

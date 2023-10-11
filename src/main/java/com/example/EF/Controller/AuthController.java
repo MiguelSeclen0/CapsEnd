@@ -1,6 +1,7 @@
 package com.example.EF.Controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.example.EF.AuthPackage.RegisterRequest;
 
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -31,22 +33,4 @@ public class AuthController {
     {
         return ResponseEntity.ok(authService.register(request));
     }
-/* 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-        // Verifica si el usuario existe en la base de datos
-        Optional<Usuario> usuario = usuarioRepository.findByEmailAndContrasena(loginRequest.getEmail(), loginRequest.getContrasena());
-
-        if (usuario.isPresent()) {
-            // Genera el token JWT usando la información del usuario
-            String token = jwtTokenUtil.generateToken(usuario.get());
-
-            // Devuelve el usuario autenticado junto con el token
-            AuthResponse authResponse = new AuthResponse(token, usuario.get());
-            return ResponseEntity.ok(authResponse);
-        } else {
-            // Devuelve un mensaje de error si las credenciales son incorrectas
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales incorrectas");
-        }
-    }*/
 }

@@ -17,9 +17,12 @@ public class Proyecto {
     private String cliente;
     private String descripcion;
     private String estado;
+    private String tipo;
+    private String color;
     private LocalDate fechaInicio;
     private LocalDate fechaFinalizacion;
     private double presupuesto;
+    
     
     @DBRef
     private Equipo equipo;

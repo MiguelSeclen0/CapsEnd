@@ -16,7 +16,7 @@ public class Miembro {
     private Usuario usuario;
 
     @DBRef
-    private Proyecto equipo;
+    private Equipo equipo;
 
     @DBRef
     private Rol rol;

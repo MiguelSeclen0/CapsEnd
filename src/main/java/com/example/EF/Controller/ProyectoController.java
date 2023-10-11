@@ -1,5 +1,6 @@
 package com.example.EF.Controller;
 
+import com.example.EF.DTO.ProyectoDTO;
 import com.example.EF.Domain.Proyecto;
 import com.example.EF.Service.ProyectoService;
 
@@ -25,6 +26,9 @@ public class ProyectoController {
     @Autowired
     private ProyectoService proyectoService;
     
+    public ProyectoController(ProyectoService proyectoService) {
+        this.proyectoService = proyectoService;
+    }
     @GetMapping(value="/all")
     public List<Proyecto> getAllProyecto(){
         return proyectoService.Listar();
@@ -49,6 +53,18 @@ public class ProyectoController {
             return new ResponseEntity<Proyecto>(proyecto, HttpStatus.OK);
         } else {
             return new ResponseEntity<Proyecto>(HttpStatus.NO_CONTENT);
+        }
+    }
+
+    @PostMapping(value = "/findByEmail")
+    public ResponseEntity<List<ProyectoDTO>> findProyectosPorEmail(@RequestBody String email) {
+        // Utiliza el servicio para buscar proyectos por el email del usuario
+        List<ProyectoDTO> proyectosDTO = proyectoService.buscarProyectosPorEmail(email);
+        
+        if (proyectosDTO.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(proyectosDTO, HttpStatus.OK);
         }
     }
 }
